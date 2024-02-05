@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Brooklyn Public Library</title>
+        <link rel="stylesheet" href="./Library1.css" type="text/css" />
+    </head>
+    <body>
+        <script src="./Library.js"></script>
+        <div id="adapt">
+<header>
+    <h1 id="PageTitle">
+        Brooklyn Public Library
+    </h1>
+    <nav >
+        <ul id="menu">
+            <li><a class="menuItem" href="#aboutPart">About</a></li>
+            <li><a class="menuItem" href="#favoritesPart">Favorites</a></li>
+            <li><a class="menuItem" href="#cofeeShopPart">Coffee shop</a></li>
+            <li><a class="menuItem" href="#contactsPart">Contacts</a></li>
+            <li><a class="menuItem" href="#libraryCardPart">Library Card</a></li>
+        </ul>
+    </nav>
+    <ul id="adaptMenu">
+        <li><a class="menuItem" href="#aboutPart">About</a></li>
+        <li><a class="menuItem" href="#favoritesPart">Favorites</a></li>
+        <li><a class="menuItem" href="#cofeeShopPart">Coffee shop</a></li>
+        <li><a class="menuItem" href="#contactsPart">Contacts</a></li>
+        <li><a class="menuItem" href="#libraryCardPart">Library Card</a></li>
+    </ul>
+    <img id="iconProfile" src="./images/Profile.svg" onclick="openProf()">
+    <div id="ProfileLet" style="display: none;" onclick="openProf()"></div>
+    <div id="dropMenuWithoutAuth" style="width: 0px; opacity: 0;">
+    <p id="profileTitle">Profile</p>
+    <hr id="profileDecorationLine">
+    <button class="profileButton" onclick="LogIn()">Log In</button>
+    <button class="profileButton" onclick="Register()">Register</button>
+    <button class="profileButtonAuth" style="display: none;" onclick="OpenProfWindow()">My profile</button>
+    <button class="profileButtonAuth" style="display: none;" onclick="LogOut()">Log Out</button>
+    </div>
+    <div id="ProfileWindow">
+        <div id="leftSide">
+            <div id="profileLetSqu"></div>
+            <div id="profileName"></div>
+        </div>
+        <div id="rightSide">
+            <p id="ProfileText">My Profile</p>
+            <div id="profileCloseBut" onclick="CloseProfWindow()">X</div>
+            <div id="profileInfo">
+                <div class="infoBlock">
+                    <p class="infoBlockName">Visits</p>
+                    <img class="infoBlockImg" src="./images/ForProfileWindowVisits.png">
+                    <p class="infoBlockNumber"></p>
+                </div>
+                <div class="infoBlock">
+                    <p class="infoBlockName">Bonuses</p>
+                    <img class="infoBlockImg" src="./images/ForProfileWindowBonuses.png">
+                    <p class="infoBlockNumber"></p>
+                </div>
+                <div class="infoBlock">
+                    <p class="infoBlockName">Books</p>
+                    <img class="infoBlockImg" src="./images/ForProfileWindowBooks.png">
+                    <p class="infoBlockNumber"></p>
+                </div>
+            </div>
+            <div id="rentedBooks">
+            <p id="RentedBooksTitle">Rented books</p>
+            <ul id="rentedBooksList">
+                <li class="rentedBooksListItem"></li>
+                <li class="rentedBooksListItem"></li>
+            </ul>
+            </div>
+            <div id="cardHolder">
+            <p id="cardNumberTitle">Card number</p>
+            <p id="cardNumber"></p>
+            <img id="cardNumberImg" src="./images/CardHolderImage.png">
+        </div>
+        </div>
+    </div>
+    <img id="burger" src="./images/burger.svg" onclick="appearMenu()">
+    <img id="cross" src="./images/closeoverlay.svg" onclick="closeOverlay()">
+</header>
+<main>
+    <section class="welcome">
+    <div id="welcomeTitle"><p id="titleText">Welcome<br> to the Brooklyn<br> Library</p></div>
+    </section>
+    <!-- Блок About с картинками и кнопками пагинации -->
+    <a name="aboutPart"></a>
+    <section class="about">
+        <div class="aboutTitle">
+            <h2 id="aboutText">About</h2>
+            <hr id="decorationLine">
+        </div>
+        <p id="aboutDescriptionText">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>
+        <div class="pagination">
+        <div id="imagesItems">
+            <img class="imageItem" src="./images/AboutImage1.png" style="visibility: visible; opacity: 1;">
+            <img class="imageItem" src="./images/AboutImage2.png" style="visibility: visible; opacity: 1;">
+            <img class="imageItem" src="./images/AboutImage3.png" style="visibility: visible; opacity: 1;">
+            <img class="imageItem" src="./images/AboutImage4.png" style="visibility: hidden; opacity: 0; width: 0px; display: none;">
+            <img class="imageItem" src="./images/AboutImage5.png" style="visibility: hidden; opacity: 0; width: 0px; display: none;">
+    </div>
+    <div id="carouselPagination">
+        <div class="paginationArea" onclick="SliderLeft()"><div class="paginationButton" onclick="SliderLeft()"></div></div>
+        <div class="paginationArea" onclick="SliderMiddle()"><div class="paginationButton" onclick="SliderMiddle()"></div></div>
+        <div class="paginationArea" onclick="SliderRight()"><div class="paginationButton" onclick="SliderRight()"></div></div>
+    </div>
+    <div id="adaptivityimagesItems">
+        <div id="arrowButonLeft" onclick="SliderLeftAdapt()"><</div>
+        <img class="adaptivityimageItem" src="./images/AboutImage1.png" style="visibility: visible; opacity: 1;">
+        <img class="adaptivityimageItem" src="./images/AboutImage2.png" style="visibility: hidden; opacity: 0; ">
+        <img class="adaptivityimageItem" src="./images/AboutImage3.png" style="visibility: hidden; opacity: 0; ">
+        <img class="adaptivityimageItem" src="./images/AboutImage4.png" style="visibility: hidden; opacity: 0; ">
+        <img class="adaptivityimageItem" src="./images/AboutImage5.png" style="visibility: hidden; opacity: 0; ">
+        <div id="arrowButonRight" onclick="SliderRightAdapt()">></div>
+    </div>
+        <div id="adaptivitycarouselPagination">
+            <div class="paginationArea" onclick="SliderAdapt0()"><div class="paginationButton"onclick="SliderAdapt0()"></div></div>
+            <div class="paginationArea" onclick="SliderAdapt1()"><div class="paginationButton"onclick="SliderAdapt1()"></div></div>
+            <div class="paginationArea" onclick="SliderAdapt2()"><div class="paginationButton"onclick="SliderAdapt2()"></div></div>
+            <div class="paginationArea" onclick="SliderAdapt3()"><div class="paginationButton"onclick="SliderAdapt3()"></div></div>
+            <div class="paginationArea" onclick="SliderAdapt4()"><div class="paginationButton"onclick="SliderAdapt4()"></div></div>
+        </div>
+    </section>
+    <!-- Блок Favorites с книгами -->
+    <a name="favoritesPart"></a>
+    <section class="favorites">
+        <div class="favoritesTitle">
+            <h2 id="favoritesText">Favorites</h2>
+            <hr id="favoritesDecorationLine">
+        </div>
+        <p id="favoritesDescriptionText">Pick favorites of season </p>
+        <div class="seasons">
+            <div id="favoritesButtonArea" onclick="Winter()"><lable id="favoritesButtonLable"><input type="radio" class="favoritesButton" value="winter" name="option" onclick="Winter()"> Winter</lable></div>
+            <div id="favoritesButtonArea" onclick="Spring()"><lable id="favoritesButtonLable"><input type="radio" class="favoritesButton" value="spring" name="option" onclick="Spring()"> Spring</lable></div>
+            <div id="favoritesButtonArea" onclick="Summer()"><lable id="favoritesButtonLable"><input type="radio" class="favoritesButton" value="summer" name="option" onclick="Summer()"> Summer</lable></div>
+            <div id="favoritesButtonArea" onclick="Autumn()"><lable id="favoritesButtonLable"><input type="radio" class="favoritesButton" value="autumn" name="option" onclick="Autumn()"> Autumn</lable></div>
+        </div>
+        <div id="seasonBooks">
+            <div id="Winter">
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">The Book Eaters<br> By Sunyi Dean</p>
+                <p class="description">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                <button class="seasonBookButton" onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/WinterBooks/WinterBook1.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Cackle<br> By Rachel Harrison</p>
+                <p class="description">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/WinterBooks/WinterBook2.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Dante: Poet of the Secular World<br> By Erich Auerbach</p>
+                <p class="description">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/WinterBooks/WinterBook3.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">The Last Queen<br> By Clive Irving</p>
+                <p class="description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/WinterBooks/WinterBook4.png">
+            </div>
+        </div>
+        <div id="Spring">
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">The Body<br> By Stephen King</p>
+                <p class="description">Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/SpringBooks/SpringBook1.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Carry: A Memoir of Survival on Stolen Land<br> By Toni Jenson</p>
+                <p class="description">This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/SpringBooks/SpringBook2.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Days of Distraction<br> By Alexandra Chang</p>
+                <p class="description">A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/SpringBooks/SpringBook3.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Dominicana<br> By Angie Cruz</p>
+                <p class="description">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/SpringBooks/SpringBook4.png">
+            </div>
+        </div>
+        <div id="Summer">
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Crude: A Memoir<br> By Pablo Fajardo & ​​Sophie Tardy-Joubert</p>
+                <p class="description">Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/SummerBooks/SummerBook1.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Let My People Go Surfing<br> By Yvon Chouinard</p>
+                <p class="description">Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/SummerBooks/SummerBook2.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">The Octopus Museum: Poems<br> By Brenda Shaughnessy</p>
+                <p class="description">This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/SummerBooks/SummerBook3.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Shark Dialogues: A Novel<br> By Kiana Davenport</p>
+                <p class="description">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/SummerBooks/SummerBook4.png">
+            </div>
+        </div>
+        <div id="Autumn">
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Casual Conversation<br> By Renia White</p>
+                <p class="description">White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity. </p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/AutumnBooks/AutumnBook1.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">The Great Fire<br> By Lou Ureneck</p>
+                <p class="description">The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/AutumnBooks/AutumnBook2.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Rickey: The Life and Legend<br> By Howard Bryant</p>
+                <p class="description">With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?</p>
+                <button class="seasonBookButton" onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/AutumnBooks/AutumnBook3.png">
+            </div>
+            <div class="seasonBook">
+                <p class="staffPicks">Staff Picks</p>
+                <hr class="staffPicksDecorationLine">
+                <p class="seasonBookTitle">Slug: And Other Stories<br> By Megan Milks</p>
+                <p class="description">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</p>
+                <button class="seasonBookButton"onclick="LogIn()">Buy</button>
+                <img class="seasonBookImage" src="./images/AutumnBooks/AutumnBook4.png">
+            </div>
+        </div>
+        </div>
+    </section>
+       <!-- блок cofeeShop -->
+       <a name="cofeeShopPart"></a>
+       <section class="cofeeShop">
+        <div class="cofeeShopTitle">
+            <h2 id="cofeeShopText">Coffee shop</h2>
+            <hr id="cofeeShopDecorationLine">
+        </div>
+        <p id="cofeeShopDescription">
+            In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. 
+            you can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.
+        </p>
+        <div class="cofeeShopMenu">
+            <div class="cofeeShopMenuPart">
+                <p id="cofeeShopMenuTitle">Coffee & Tea</p>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Cold Brew Coffee</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$3</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">French Press Pot</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$5</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Espresso</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$2</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Cappuccino</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$4</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Hot tea</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$2</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Cold tea</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$2</p>
+                </div>
+            </div>
+            <div class="cofeeShopMenuPart2">
+                <p id="cofeeShopMenuTitle">Desserts & Cakes</p>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Forest Gateau</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$16</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Blue Moon</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$16</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Truffle Cake</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$15</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Chocolate Cake</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$18</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Poet’s Dream Cake</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$16</p>
+                </div>
+                <div class="cofeeShopMenuItem">
+                    <p id="cofeeShopMenuItemName">Pineapple Cake</p>
+                    <hr id="cofeeShopMenuItemDecorationLine">
+                    <p id="cofeeShopMenuItemCoast">$14</p>
+                </div>
+            </div>
+        </div>
+       </section>
+    <!-- OurContacts -->
+    <a name="contactsPart"></a>
+    <section name="contactsPart" class="ourContacts">
+        <div class="ourContactsTitle">
+            <h2 id="ourContactsText">Our Contacts</h2>
+            <hr id="ourContactsDecorationLine">
+        </div>
+        <div class="ourContactsInfo">
+            <div id="ourContactsTextInfo">
+                For all Library inquiries:
+                <div id="ourContactsPhoneInfo">
+                    <a href="tel:(617) 730-2370" id="phone">Please call (617) 730-2370</a><br>
+                    <a href="tel:(617) 730-2370" id="phone">For TTY service, please call (617) 730-2370</a><br>
+                    <a href="tel:(617) 730-2370" id="phone">Please call (617) 730-2370</a>
+                </div>
+                <div id="ourContactsSeniorStaff">
+                    Senior Staff<br>
+                    <p id="libraryDirectorText">Library Director:<a href="mailto:AmandaHirst@gmail.com" id="director"> Amanda Hirst</a></p> 
+                </div>
+            </div>
+            <img id="ourContactsMap" src="./images/Map.png">
+        </div>
+    </section>
+    <!-- Library card -->
+    <a name="libraryCardPart"></a>
+    <section class="libraryCard">
+        <div class="libraryCardTitle">
+            <h2 id="libraryCardText">Digital Library Cards</h2>
+            <hr id="libraryCardDecorationLine">
+        </div>
+        <div class="libraryCardInfo">
+        <div class="findCard">
+            <p id="findCardTitle">Find your Library card</p>
+            <form id="findCardForm">
+                <div id="formBackground">
+                <p id="findCardLable" for="findCardForm">Brooklyn Public Library</p>
+                <input type="text" placeholder="&nbsp;Reader's name" class="findCardInput" name="Login" pattern="[\w|\-]">
+                <input type="text" placeholder="&nbsp;Card number" class="findCardInput" name="CardNumber" pattern="[\d]">
+            </div>
+            <input type="submit" value="Check the card" id="findCardButton">
+            </form>
+        </div>
+        <div class="getCard">
+            <p id="getCardTitle">Get a reader card</p>
+            <p id="getCardText">You will be able to see a reader card after logging into account or you can register a new account</p>
+            <div class="buttons">
+            <button id="getCardButton" onclick="Register()">Sign Up</button>
+            <button id="getCardButton" onclick="LogIn()">Log In</button>
+            </div>
+        </div>
+    </div>
+    <div id="ModalLogIn">
+        <div id="closeBut" onclick="LogInModClose()">X</div>
+        <p id="login">Login</p>
+        <form id="signUp" method="post" onsubmit="return AccountLogIn()">
+            <p class="CardInputText" >E-mail or readers card</p>
+            <input class="CardInput" id="TextEmOrRCardInput" type="text">
+            <p class="CardInputText">Password</p>
+            <input class="CardInput" id="LogPasswordInput" type="password">
+            <input type="submit" id="LogIn" value="Log In" onclick="AccountLogIn()">
+        </form>
+        <p id="question">Don't have an account?&nbsp;&nbsp;<a id="linkToRegister" onclick="Register()">Register</a></p>
+    </div>
+    <div id="ModalRegister">
+        <div id="closeBut" onclick="RegClose()">X</div>
+        <p id="register">Register</p>
+        <form id="registerForm" onsubmit="return AccountRegistration()">
+            <p class="CardInputText">First name</p>
+            <input class="CardInput" id="firstNameInput" type="text">
+            <p class="CardInputText">Last name</p>
+            <input class="CardInput" id="LastNameInput" type="text">
+            <p class="CardInputText">E-mail</p>
+            <input class="CardInput" id="EmailInput" type="email">
+            <p class="CardInputText">Password</p>
+            <input class="CardInput" id="PasswordInput" type="password">
+            <input type="submit" id="SignUp" value="Sign Up" onclick="AccountRegistration()">
+        </form>
+        <p id="question">Already have an account?&nbsp;&nbsp;<a id="linkToLogin" onclick="LogIn()">Login</a></p>
+    </div>
+    </section>
+</main>
+<!-- Footer -->
+<footer>
+    <div class="libraryInfo">
+    <div class="libraryContacts">
+        <a id="footerHref" href="https://www.google.com/maps/search/286+cadman+plaza+new+york+ny+11238+united+states/@40.6956123,-73.9906156,19.96z?entry=ttu">
+            286 Cadman Plaza, New York, NY 11238, United States</a>
+            <a id="LibrarySocialMediaRef" href="https://twitter.com/BKLYNlibrary?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                <img id="twiter" src="./images/TwiterRef.svg"></a>
+            <a id="LibrarySocialMediaRef" href="https://www.instagram.com/bklynlibrary/">
+                <img id="instagram" src="./images/InstagramRef.svg"></a>
+            <a id="LibrarySocialMediaRef" href="https://www.facebook.com/BrooklynPublicLibrary/">
+                <img id="facebook" src="./images/FacebookRef.svg"></a>
+</div>
+<div class="workTime">
+    <p id="time">Mon - Fri<br>
+        08:00 am - 07:00 pm</p>
+        <p id="time">Sat - Sun<br>
+            10:00 am - 06:00 pm</p>
+
+</div>
+</div>
+<hr id="divideLine">
+<div class="footerRss">
+<p id="rssText">2023</p>
+<a id="gitRef" href="https://rs.school/js-stage0/">The Rolling Scopes School</a>
+<p id="rssText">Ilya(<a id="gitRef" href="https://github.com/PereselakIlya">@PereselakIlya</a>)</p>
+</div>
+</footer>
+</div>
+    </body>
+</html>
